@@ -93,26 +93,6 @@ export class Wrapper extends React.PureComponent {
     this.unsubscribe();
   }
 
-  onHide = (feedback = this.state.feedback) => {
-    this.state.current.resolve(feedback);
-    this.dialog.destroy();
-
-    let newCurrent = null;
-    let newQueue = [...this.state.queue];
-    if (newQueue.length) {
-      newCurrent = newQueue.shift();
-    }
-
-    this.setState(
-      {
-        current: newCurrent,
-        queue: newQueue,
-        feedback: null
-      },
-      this.show
-    );
-  };
-
   onAdd = item => {
     ow(item, ow.object);
     ow(item.type, ow.string);
@@ -144,6 +124,36 @@ export class Wrapper extends React.PureComponent {
     }
   };
 
+  hide = () => {
+    if (this.state.current) {
+      this.dialog.hide();
+    }
+  };
+
+  hideWithFeedback = feedback => {
+    this.setState({ feedback }, () => this.dialog.hide());
+  };
+
+  onHide = (feedback = this.state.feedback) => {
+    this.state.current.resolve(feedback);
+    this.dialog.destroy();
+
+    let newCurrent = null;
+    let newQueue = [...this.state.queue];
+    if (newQueue.length) {
+      newCurrent = newQueue.shift();
+    }
+
+    this.setState(
+      {
+        current: newCurrent,
+        queue: newQueue,
+        feedback: null
+      },
+      this.show
+    );
+  };
+
   onDialogChange = feedback => this.setState({ feedback });
 
   hideWithFeedback = feedback => this.onHide(feedback);
@@ -155,14 +165,18 @@ export class Wrapper extends React.PureComponent {
       return null;
     }
 
+    const sharedProps = {
+      ...current,
+      hide: this.hide,
+      hideWithFeedback: this.hideWithFeedback
+    };
+
     switch (current.type) {
       case "alert": {
-        return <Alert {...current} />;
+        return <Alert {...sharedProps} />;
       }
       case "confirm": {
-        return (
-          <Confirm {...current} hideWithFeedback={this.hideWithFeedback} />
-        );
+        return <Confirm {...sharedProps} />;
       }
       default: {
         return null;
