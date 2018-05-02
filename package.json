@@ -3,9 +3,6 @@
   "version": "0.0.0",
   "description": "React component to display accessible dialogs",
   "main": "dist/index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/snowballdigital/react-dialog.git"
@@ -15,5 +12,29 @@
   "bugs": {
     "url": "https://github.com/snowballdigital/react-dialog/issues"
   },
-  "homepage": "https://github.com/snowballdigital/react-dialog#readme"
+  "homepage": "https://github.com/snowballdigital/react-dialog#readme",
+  "dependencies": {
+    "a11y-dialog": "^5.0.1",
+    "emittery": "^0.3.0",
+    "ow": "^0.2.0"
+  },
+  "devDependencies": {
+    "faker": "^4.1.0",
+    "prop-types": "^15.6.1",
+    "react": "^16.3.2",
+    "react-dom": "^16.3.2",
+    "react-scripts": "1.1.4",
+    "styled-components": "^3.2.6"
+  },
+  "scripts": {
+    "dev": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "peerDependencies": {
+    "react": "^16.3.2",
+    "react-dom": "^16.3.2",
+    "styled-components": "^3.2.6"
+  }
 }
