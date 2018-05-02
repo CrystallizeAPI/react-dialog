@@ -1,0 +1,19 @@
+{
+  "name": "@crystallize/react-dialog",
+  "version": "0.0.0",
+  "description": "React component to display accessible dialogs",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/snowballdigital/react-dialog.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/snowballdigital/react-dialog/issues"
+  },
+  "homepage": "https://github.com/snowballdigital/react-dialog#readme"
+}
