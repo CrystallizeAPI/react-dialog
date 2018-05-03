@@ -1,36 +1,56 @@
 import React from "react";
 
-import Dialoge from "./dialoge";
+import Skeleton from "./skeleton";
 
-import { Buttons, Button } from "./styles";
+import { Buttons } from "./styles";
 
-export default ({ title, body, hideWithFeedback, buttons = {} }) => {
-  const buttonOk = Object.assign(
-    {
-      value: "ok",
-      text: "OK"
-    },
-    buttons.ok
-  );
-  const buttonCancel = Object.assign(
-    {
-      value: "cancel",
-      text: "Cancel"
-    },
-    buttons.cancel
-  );
+export default class Confirm extends React.Component {
+  render() {
+    const {
+      state,
+      ButtonOk,
+      ButtonCancel,
+      hideWithFeedback,
+      ...rest
+    } = this.props;
 
-  return (
-    <Dialoge tiny title={title} className="crystallize-dialog--confirm">
-      {body}
-      <Buttons>
-        <Button onClick={() => hideWithFeedback(buttonCancel.value)} secondary>
-          {buttonCancel.text}
-        </Button>
-        <Button onClick={() => hideWithFeedback(buttonOk.value)} primary>
-          {buttonOk.text}
-        </Button>
-      </Buttons>
-    </Dialoge>
-  );
-};
+    const { title, body, buttons = {} } = state;
+
+    let BtnOk = ButtonOk;
+    let btnOkText = "Ok";
+    if (buttons.ok) {
+      if (typeof buttons.ok === "string") {
+        btnOkText = buttons.ok;
+      } else {
+        BtnOk = buttons.ok;
+      }
+    }
+
+    let BtnCancel = ButtonCancel;
+    let btnCancelText = "Cancel";
+    if (buttons.cancel) {
+      if (typeof buttons.cancel === "string") {
+        btnCancelText = buttons.cancel;
+      } else {
+        BtnCancel = buttons.cancel;
+      }
+    }
+
+    return (
+      <Skeleton
+        title={title}
+        tiny
+        className="crystallize-dialog--confirm"
+        {...rest}
+      >
+        {body}
+        <Buttons>
+          <BtnOk onClick={() => hideWithFeedback("ok")}>{btnOkText}</BtnOk>
+          <BtnCancel onClick={() => hideWithFeedback("cancel")}>
+            {btnCancelText}
+          </BtnCancel>
+        </Buttons>
+      </Skeleton>
+    );
+  }
+}

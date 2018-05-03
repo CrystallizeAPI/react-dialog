@@ -1,13 +1,13 @@
 import React from "react";
 
-import Dialoge from "./dialoge";
-import { Buttons, Button } from "./styles";
+import Skeleton from "./skeleton";
+import { Buttons } from "./styles";
 
-export default ({ title, body, hide }) => (
-  <Dialoge tiny title={title}>
-    {body}
+export default ({ state, hide, ButtonOk, ...rest }) => (
+  <Skeleton title={state.title} tiny {...rest}>
+    {state.body}
     <Buttons>
-      <Button onClick={hide}>Ok</Button>
+      <ButtonOk onClick={hide}>Ok</ButtonOk>
     </Buttons>
-  </Dialoge>
+  </Skeleton>
 );

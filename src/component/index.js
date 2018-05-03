@@ -2,73 +2,36 @@ import React from "react";
 import Emittery from "emittery";
 import A11yDialog from "a11y-dialog";
 import ow from "ow";
-import styled from "styled-components";
 
 import Alert from "./alert";
 import Confirm from "./confirm";
+import Dialog from "./dialog";
 
-const Backdrop = styled.div.attrs({
-  className: "crystallize-dialog-backdrop"
-})`
-  background: rgba(0, 0, 0, 0.2);
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-`;
-
-const Outer = styled.div.attrs({
-  className: "crystallize-dialog-outer"
-})`
-  &[data-a11y-dialog-native] > :first-child {
-    display: none;
-  }
-
-  &:not([data-a11y-dialog-native]) {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    dialog {
-      z-index: 9999;
-
-      &[open] {
-        display: block;
-      }
-    }
-
-    ${Backdrop} {
-      z-index: 9998;
-    }
-  }
-`;
+import {
+  WrapperCmp,
+  LegacyBackdrop,
+  Button,
+  legacyBackdropClassName
+} from "./styles";
 
 const emitter = new Emittery();
 
 function showSomething(type, data) {
-  let title = data;
-  let body = data;
-  let buttons;
+  const state = {
+    title: null,
+    body: data,
+    buttons: {},
+    showHideButton: type === "dialog"
+  };
 
   if (typeof data !== "string") {
-    title = data.title;
-    body = data.body;
-    buttons = data.buttons;
+    Object.assign(state, data);
   }
 
   return new Promise(resolve => {
     emitter.emit("add", {
+      ...state,
       type,
-      title,
-      body,
-      buttons,
       resolve
     });
   });
@@ -82,7 +45,27 @@ export function showConfirm(data) {
   return showSomething("confirm", data);
 }
 
+export function showDialog(data) {
+  return showSomething("dialog", data);
+}
+
 export class Wrapper extends React.PureComponent {
+  static getDerivedStateFromProps(nextProps, prevState) {
+    let state = {};
+    if (nextProps.ButtonOk) {
+      state.ButtonOk = nextProps.ButtonOk;
+    } else {
+      state.ButtonOk = Button;
+    }
+    if (nextProps.ButtonCancel) {
+      state.ButtonCancel = nextProps.ButtonCancel;
+    } else {
+      state.ButtonCancel = Button;
+    }
+
+    return state;
+  }
+
   state = {
     current: null,
     queue: [],
@@ -96,13 +79,15 @@ export class Wrapper extends React.PureComponent {
 
   componentWillUnmount() {
     this.unsubscribe();
+    clearTimeout(this.suspendCloseTimeout);
   }
 
   onAdd = item => {
     ow(item, ow.object);
     ow(item.type, ow.string);
-    ow(item.title, ow.string);
+    ow(item.title, ow.any(ow.string, ow.nullOrUndefined));
     ow(item.body, ow.any(ow.string, ow.object));
+    ow(item.buttons, ow.object);
     ow(item.resolve, ow.function);
 
     const { queue, current } = this.state;
@@ -126,22 +111,33 @@ export class Wrapper extends React.PureComponent {
       this.dialog = new A11yDialog(this.el);
       this.dialog.on("hide", this.onHide);
       this.dialog.show();
+
+      this.oldBodyOverflow = document.body.style.overflow;
+      document.body.style.overflow = "hidden";
+
+      this.suspendClose = true;
+      this.suspendCloseTimeout = setTimeout(
+        () => (this.suspendClose = false),
+        500
+      );
     }
   };
 
   hide = () => {
-    if (this.state.current) {
+    if (this.state.current && !this.suspendClose) {
       this.dialog.hide();
     }
   };
 
   hideWithFeedback = feedback => {
-    this.setState({ feedback }, () => this.dialog.hide());
+    this.setState({ feedback }, () => this.hide());
   };
 
   onHide = (feedback = this.state.feedback) => {
     this.state.current.resolve(feedback);
     this.dialog.destroy();
+
+    document.body.style.overflow = this.oldBodyOverflow;
 
     let newCurrent = null;
     let newQueue = [...this.state.queue];
@@ -164,16 +160,18 @@ export class Wrapper extends React.PureComponent {
   hideWithFeedback = feedback => this.onHide(feedback);
 
   getCurrentComponent() {
-    const { current } = this.state;
+    const { current, ButtonOk, ButtonCancel } = this.state;
 
     if (!current) {
       return null;
     }
 
     const sharedProps = {
-      ...current,
+      state: current,
       hide: this.hide,
-      hideWithFeedback: this.hideWithFeedback
+      hideWithFeedback: this.hideWithFeedback,
+      ButtonOk,
+      ButtonCancel
     };
 
     switch (current.type) {
@@ -182,6 +180,9 @@ export class Wrapper extends React.PureComponent {
       }
       case "confirm": {
         return <Confirm {...sharedProps} />;
+      }
+      case "dialog": {
+        return <Dialog {...sharedProps} />;
       }
       default: {
         return null;
@@ -192,8 +193,14 @@ export class Wrapper extends React.PureComponent {
   getRef = el => (this.el = el);
 
   onClick = e => {
-    if (e.target.tagName === "DIALOG") {
-      this.dialog.hide();
+    if (this.state.current.type !== "confirm") {
+      if (
+        e.target.tagName === "DIALOG" ||
+        e.target.classList.contains(legacyBackdropClassName)
+      ) {
+        this.hide();
+        e.preventDefault();
+      }
     }
   };
 
@@ -205,10 +212,10 @@ export class Wrapper extends React.PureComponent {
     }
 
     return (
-      <Outer innerRef={this.getRef} onClick={this.onClick}>
-        <Backdrop tabIndex="-1" data-a11y-dialog-hide />
+      <WrapperCmp innerRef={this.getRef} onClick={this.onClick}>
+        <LegacyBackdrop tabIndex="-1" onClick={this.onClick} />
         {renderCmp}
-      </Outer>
+      </WrapperCmp>
     );
   }
 }
