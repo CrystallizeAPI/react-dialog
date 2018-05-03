@@ -1,3 +1,11 @@
+<a name="0.0.2"></a>
+## <small>0.0.2 (2018-05-03)</small>
+
+* Added changelog ([09e7661](https://github.com/snowballdigital/react-dialog/commit/09e7661))
+* Added react-i18n ([80fdcd8](https://github.com/snowballdigital/react-dialog/commit/80fdcd8))
+
+
+
 <a name="0.0.1"></a>
 ## <small>0.0.1 (2018-05-03)</small>
 
