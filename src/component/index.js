@@ -7,7 +7,9 @@ import styled from "styled-components";
 import Alert from "./alert";
 import Confirm from "./confirm";
 
-const Backdrop = styled.div`
+const Backdrop = styled.div.attrs({
+  className: "crystallize-dialog-backdrop"
+})`
   background: rgba(0, 0, 0, 0.2);
   position: absolute;
   top: 0;
@@ -17,34 +19,34 @@ const Backdrop = styled.div`
   z-index: 1;
 `;
 
-const Outer = styled.div`
+const Outer = styled.div.attrs({
+  className: "crystallize-dialog-outer"
+})`
   &[data-a11y-dialog-native] > :first-child {
     display: none;
   }
 
-  &:not([data-a11y-dialog-native]) dialog {
+  &:not([data-a11y-dialog-native]) {
     position: absolute;
     top: 0;
     left: 0;
-    width: 400px;
-    z-index: 9999;
-  }
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-  ${Backdrop} {
-    z-index: 9998;
-  }
+    dialog {
+      z-index: 9999;
 
-  dialog {
-    border: none;
-    padding: 0;
-
-    &[open] {
-      display: block;
+      &[open] {
+        display: block;
+      }
     }
-  }
 
-  .dialog-container[aria-hidden="true"] {
-    display: none;
+    ${Backdrop} {
+      z-index: 9998;
+    }
   }
 `;
 
@@ -53,10 +55,12 @@ const emitter = new Emittery();
 function showSomething(type, data) {
   let title = data;
   let body = data;
+  let buttons;
 
   if (typeof data !== "string") {
     title = data.title;
     body = data.body;
+    buttons = data.buttons;
   }
 
   return new Promise(resolve => {
@@ -64,6 +68,7 @@ function showSomething(type, data) {
       type,
       title,
       body,
+      buttons,
       resolve
     });
   });
@@ -202,8 +207,7 @@ export class Wrapper extends React.PureComponent {
     return (
       <Outer innerRef={this.getRef} onClick={this.onClick}>
         <Backdrop tabIndex="-1" data-a11y-dialog-hide />
-
-        <dialog aria-labelledby="crystallize-dialog-title">{renderCmp}</dialog>
+        {renderCmp}
       </Outer>
     );
   }

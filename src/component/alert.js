@@ -1,10 +1,13 @@
 import React from "react";
 
 import Dialoge from "./dialoge";
+import { Buttons, Button } from "./styles";
 
 export default ({ title, body, hide }) => (
   <Dialoge tiny title={title}>
     {body}
-    <button onClick={hide}>Ok</button>
+    <Buttons>
+      <Button onClick={hide}>Ok</Button>
+    </Buttons>
   </Dialoge>
 );
