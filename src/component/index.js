@@ -112,7 +112,7 @@ export class Wrapper extends React.PureComponent {
       this.suspendClose = true;
       this.suspendCloseTimeout = setTimeout(
         () => (this.suspendClose = false),
-        500
+        300
       );
     }
   };
