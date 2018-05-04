@@ -1,3 +1,11 @@
+<a name="0.1.0"></a>
+## 0.1.0 (2018-05-04)
+
+* Added support for Heading component ([034dd7e](https://github.com/snowballdigital/react-dialog/commit/034dd7e))
+* Reduced the suspend time ([73f570b](https://github.com/snowballdigital/react-dialog/commit/73f570b))
+
+
+
 <a name="0.0.2"></a>
 ## <small>0.0.2 (2018-05-03)</small>
 
