@@ -24,7 +24,11 @@ const MyCancelButton = props => (
 
 const MyTitle = styled.h2`
   margin: 0;
-  color: red;
+  color: #bada55;
+`;
+
+const MyCloseButton = styled.button`
+  color: #bada55;
 `;
 
 export default () => (
@@ -130,6 +134,7 @@ export default () => (
         ButtonOk={MyOkButton}
         ButtonCancel={MyCancelButton}
         Heading={MyTitle}
+        ButtonClose={MyCloseButton}
       />
     </div>
   </I18nextProvider>

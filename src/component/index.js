@@ -1,4 +1,5 @@
 import React from "react";
+import { translate } from "react-i18next";
 import Emittery from "emittery";
 import A11yDialog from "a11y-dialog";
 import ow from "ow";
@@ -22,7 +23,7 @@ function showSomething(type, data) {
     title: null,
     body: data,
     buttons: {},
-    showHideButton: type === "dialog"
+    showCloseButton: type === "dialog"
   };
 
   if (typeof data !== "string") {
@@ -50,12 +51,13 @@ export function showDialog(data) {
   return showSomething("dialog", data);
 }
 
-export class Wrapper extends React.PureComponent {
+class StateAndWrapper extends React.PureComponent {
   static getDerivedStateFromProps(nextProps, prevState) {
     let state = {};
     state.ButtonOk = nextProps.ButtonOk || Button;
     state.ButtonCancel = nextProps.ButtonCancel || Button;
     state.Heading = nextProps.Heading || H1;
+    state.ButtonClose = nextProps.ButtonClose || H1;
 
     return state;
   }
@@ -154,7 +156,13 @@ export class Wrapper extends React.PureComponent {
   hideWithFeedback = feedback => this.onHide(feedback);
 
   getCurrentComponent() {
-    const { current, ButtonOk, ButtonCancel, Heading } = this.state;
+    const {
+      current,
+      ButtonOk,
+      ButtonCancel,
+      Heading,
+      ButtonClose
+    } = this.state;
 
     if (!current) {
       return null;
@@ -166,7 +174,9 @@ export class Wrapper extends React.PureComponent {
       hideWithFeedback: this.hideWithFeedback,
       ButtonOk,
       ButtonCancel,
-      Heading
+      Heading,
+      ButtonClose,
+      t: this.props.t
     };
 
     switch (current.type) {
@@ -214,3 +224,5 @@ export class Wrapper extends React.PureComponent {
     );
   }
 }
+
+export const Wrapper = translate()(StateAndWrapper);

@@ -3,11 +3,11 @@ import React from "react";
 import Skeleton from "./skeleton";
 
 export default ({ state, ...rest }) => {
-  const { body, title, showHideButton } = state;
+  const { body, title, showCloseButton } = state;
   return (
     <Skeleton
       title={title}
-      showHideButton={showHideButton}
+      showCloseButton={showCloseButton}
       className="crystallize-dialog--dialog"
       {...rest}
     >

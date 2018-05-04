@@ -1,3 +1,4 @@
+import React from "react";
 import styled from "styled-components";
 import is from "styled-is";
 
@@ -12,6 +13,12 @@ function getOuterClassName(props) {
   }
   if (props.shown) {
     base.push(`${base[0]}--show`);
+  }
+  if (props.tiny) {
+    base.push(`${base[0]}--tiny`);
+  }
+  if (props.medium) {
+    base.push(`${base[0]}--medium`);
   }
 
   return base.join(" ");
@@ -75,7 +82,7 @@ export const Outer = styled.dialog.attrs({
   transition: opacity ${transitionSpeed}ms, transform ${transitionSpeed}ms;
 
   ${is("tiny")`
-    max-width: 250px;
+    width: 250px;
   `};
 
   ${is("medium")`
@@ -127,9 +134,19 @@ export const Button = styled.button.attrs({
   className: "crystallize-dialog-button"
 })``;
 
-export const CloseButton = styled.button`
+export const CloseButtonOuter = styled.div`
   position: absolute;
   right: -7px;
   top: -7px;
   z-index: 1;
 `;
+
+export const CloseButton = () => (
+  <CloseButton
+    type="button"
+    data-a11y-dialog-hide
+    aria-label="Close this dialog window"
+  >
+    &times;
+  </CloseButton>
+);

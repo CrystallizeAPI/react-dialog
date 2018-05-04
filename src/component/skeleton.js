@@ -1,6 +1,12 @@
 import React from "react";
 
-import { transitionSpeed, Outer, Inner, Header, CloseButton } from "./styles";
+import {
+  transitionSpeed,
+  Outer,
+  Inner,
+  Header,
+  CloseButtonOuter
+} from "./styles";
 
 export default class Skeleton extends React.Component {
   state = {
@@ -22,19 +28,29 @@ export default class Skeleton extends React.Component {
   };
 
   render() {
-    const { children, tiny, title, showHideButton, Heading } = this.props;
+    const {
+      children,
+      t,
+      tiny,
+      title,
+      showCloseButton,
+      Heading,
+      ButtonClose
+    } = this.props;
 
     return (
       <Outer tiny={tiny} revealed={this.state.revealed}>
         <Inner>
-          {showHideButton && (
-            <CloseButton
-              type="button"
-              data-a11y-dialog-hide
-              aria-label="Close this dialog window"
-            >
-              &times;
-            </CloseButton>
+          {showCloseButton && (
+            <CloseButtonOuter>
+              <ButtonClose
+                type="button"
+                data-a11y-dialog-hide
+                aria-label={t("closeThisDialogWindow")}
+              >
+                &times;
+              </ButtonClose>
+            </CloseButtonOuter>
           )}
           {title && (
             <Header>
