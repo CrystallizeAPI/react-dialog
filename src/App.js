@@ -2,6 +2,7 @@ import React from "react";
 import faker from "faker";
 import { I18nextProvider } from "react-i18next";
 import i18n from "i18next";
+import styled from "styled-components";
 
 import { Wrapper, showDialog, showAlert, showConfirm } from "./component";
 
@@ -20,6 +21,11 @@ const MyOkButton = props => (
 const MyCancelButton = props => (
   <button {...props}>{props.children || "No"}</button>
 );
+
+const MyTitle = styled.h2`
+  margin: 0;
+  color: red;
+`;
 
 export default () => (
   <I18nextProvider i18n={myI18n}>
@@ -120,7 +126,11 @@ export default () => (
           </button>
         </p>
       </main>
-      <Wrapper ButtonOk={MyOkButton} ButtonCancel={MyCancelButton} />
+      <Wrapper
+        ButtonOk={MyOkButton}
+        ButtonCancel={MyCancelButton}
+        Heading={MyTitle}
+      />
     </div>
   </I18nextProvider>
 );

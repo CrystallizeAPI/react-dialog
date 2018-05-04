@@ -11,6 +11,7 @@ import {
   WrapperCmp,
   LegacyBackdrop,
   Button,
+  H1,
   legacyBackdropClassName
 } from "./styles";
 
@@ -52,16 +53,9 @@ export function showDialog(data) {
 export class Wrapper extends React.PureComponent {
   static getDerivedStateFromProps(nextProps, prevState) {
     let state = {};
-    if (nextProps.ButtonOk) {
-      state.ButtonOk = nextProps.ButtonOk;
-    } else {
-      state.ButtonOk = Button;
-    }
-    if (nextProps.ButtonCancel) {
-      state.ButtonCancel = nextProps.ButtonCancel;
-    } else {
-      state.ButtonCancel = Button;
-    }
+    state.ButtonOk = nextProps.ButtonOk || Button;
+    state.ButtonCancel = nextProps.ButtonCancel || Button;
+    state.Heading = nextProps.Heading || H1;
 
     return state;
   }
@@ -160,7 +154,7 @@ export class Wrapper extends React.PureComponent {
   hideWithFeedback = feedback => this.onHide(feedback);
 
   getCurrentComponent() {
-    const { current, ButtonOk, ButtonCancel } = this.state;
+    const { current, ButtonOk, ButtonCancel, Heading } = this.state;
 
     if (!current) {
       return null;
@@ -171,7 +165,8 @@ export class Wrapper extends React.PureComponent {
       hide: this.hide,
       hideWithFeedback: this.hideWithFeedback,
       ButtonOk,
-      ButtonCancel
+      ButtonCancel,
+      Heading
     };
 
     switch (current.type) {

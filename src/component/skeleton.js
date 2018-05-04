@@ -1,13 +1,6 @@
 import React from "react";
 
-import {
-  transitionSpeed,
-  Outer,
-  Inner,
-  Header,
-  H1,
-  CloseButton
-} from "./styles";
+import { transitionSpeed, Outer, Inner, Header, CloseButton } from "./styles";
 
 export default class Skeleton extends React.Component {
   state = {
@@ -29,7 +22,7 @@ export default class Skeleton extends React.Component {
   };
 
   render() {
-    const { children, tiny, title, showHideButton } = this.props;
+    const { children, tiny, title, showHideButton, Heading } = this.props;
 
     return (
       <Outer tiny={tiny} revealed={this.state.revealed}>
@@ -45,7 +38,7 @@ export default class Skeleton extends React.Component {
           )}
           {title && (
             <Header>
-              <H1>{title}</H1>
+              <Heading>{title}</Heading>
             </Header>
           )}
           {children}
