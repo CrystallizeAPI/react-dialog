@@ -1,3 +1,10 @@
+<a name="0.2.1"></a>
+## <small>0.2.1 (2018-05-04)</small>
+
+* Fix the close button setup ([aed5d93](https://github.com/snowballdigital/react-dialog/commit/aed5d93))
+
+
+
 <a name="0.2.0"></a>
 ## 0.2.0 (2018-05-04)
 
