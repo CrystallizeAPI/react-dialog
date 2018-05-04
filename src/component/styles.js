@@ -1,4 +1,3 @@
-import React from "react";
 import styled from "styled-components";
 import is from "styled-is";
 
@@ -134,19 +133,15 @@ export const Button = styled.button.attrs({
   className: "crystallize-dialog-button"
 })``;
 
-export const CloseButtonOuter = styled.div`
+export const CloseButtonOuter = styled.div.attrs({
+  className: "crystallize-dialog-close-button-positioner"
+})`
   position: absolute;
   right: -7px;
   top: -7px;
   z-index: 1;
 `;
 
-export const CloseButton = () => (
-  <CloseButton
-    type="button"
-    data-a11y-dialog-hide
-    aria-label="Close this dialog window"
-  >
-    &times;
-  </CloseButton>
-);
+export const CloseButton = styled.button.attrs({
+  className: "crystallize-dialog-close-button"
+})``;

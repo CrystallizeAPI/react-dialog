@@ -133,8 +133,8 @@ export default () => (
       <Wrapper
         ButtonOk={MyOkButton}
         ButtonCancel={MyCancelButton}
-        Heading={MyTitle}
         ButtonClose={MyCloseButton}
+        Heading={MyTitle}
       />
     </div>
   </I18nextProvider>

@@ -13,6 +13,7 @@ import {
   LegacyBackdrop,
   Button,
   H1,
+  CloseButton,
   legacyBackdropClassName
 } from "./styles";
 
@@ -57,7 +58,7 @@ class StateAndWrapper extends React.PureComponent {
     state.ButtonOk = nextProps.ButtonOk || Button;
     state.ButtonCancel = nextProps.ButtonCancel || Button;
     state.Heading = nextProps.Heading || H1;
-    state.ButtonClose = nextProps.ButtonClose || H1;
+    state.ButtonClose = nextProps.ButtonClose || CloseButton;
 
     return state;
   }
