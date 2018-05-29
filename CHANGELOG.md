@@ -1,3 +1,10 @@
+<a name="0.2.4"></a>
+## <small>0.2.4 (2018-05-29)</small>
+
+* fixed bug showing alert class for confirm dialogue ([b791938](https://github.com/snowballdigital/react-dialog/commit/b791938))
+
+
+
 <a name="0.2.3"></a>
 ## <small>0.2.3 (2018-05-29)</small>
 
