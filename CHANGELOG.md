@@ -1,3 +1,11 @@
+<a name="0.2.3"></a>
+## <small>0.2.3 (2018-05-29)</small>
+
+* fixed bug with type className ([4d78b60](https://github.com/snowballdigital/react-dialog/commit/4d78b60))
+* Swithed to parcel for developing ([0a7c195](https://github.com/snowballdigital/react-dialog/commit/0a7c195))
+
+
+
 <a name="0.2.2"></a>
 ## <small>0.2.2 (2018-05-29)</small>
 
