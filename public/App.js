@@ -4,7 +4,7 @@ import { I18nextProvider } from "react-i18next";
 import i18n from "i18next";
 import styled from "styled-components";
 
-import { Wrapper, showDialog, showAlert, showConfirm } from "./component";
+import { Wrapper, showDialog, showAlert, showConfirm } from "../src";
 
 const myI18n = i18n.init({
   lng: "en", // active language http://i18next.com/translate/
