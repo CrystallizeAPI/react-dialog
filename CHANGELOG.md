@@ -1,3 +1,10 @@
+<a name="0.2.2"></a>
+## <small>0.2.2 (2018-05-29)</small>
+
+* exposed classnames for different dialog types ([8f17067](https://github.com/snowballdigital/react-dialog/commit/8f17067))
+
+
+
 <a name="0.2.1"></a>
 ## <small>0.2.1 (2018-05-04)</small>
 
