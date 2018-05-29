@@ -8,7 +8,7 @@ export default ({ state, ...rest }) => {
     <Skeleton
       title={title}
       showCloseButton={showCloseButton}
-      className="crystallize-dialog--dialog"
+      type="dialog"
       {...rest}
     >
       {body}

@@ -39,13 +39,7 @@ class Confirm extends React.Component {
     }
 
     return (
-      <Skeleton
-        title={title}
-        t={t}
-        tiny
-        className="crystallize-dialog--confirm"
-        {...rest}
-      >
+      <Skeleton title={title} t={t} tiny type="alert" {...rest}>
         {body}
         <Buttons>
           <BtnOk onClick={() => hideWithFeedback("ok")}>{btnOkText}</BtnOk>

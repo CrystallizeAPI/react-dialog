@@ -8,7 +8,7 @@ export default class Alert extends React.Component {
     const { state, hide, ButtonOk, t, ...rest } = this.props;
 
     return (
-      <Skeleton title={state.title} t={t} tiny {...rest}>
+      <Skeleton title={state.title} t={t} tiny type="alert" {...rest}>
         {state.body}
         <Buttons>
           <ButtonOk onClick={hide}>{t("ok")}</ButtonOk>

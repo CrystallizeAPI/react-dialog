@@ -32,6 +32,7 @@ export default class Skeleton extends React.Component {
       children,
       t,
       tiny,
+      type,
       title,
       showCloseButton,
       Heading,
@@ -39,7 +40,7 @@ export default class Skeleton extends React.Component {
     } = this.props;
 
     return (
-      <Outer tiny={tiny} revealed={this.state.revealed}>
+      <Outer type={type} tiny={tiny} revealed={this.state.revealed}>
         <Inner>
           {showCloseButton && (
             <CloseButtonOuter>

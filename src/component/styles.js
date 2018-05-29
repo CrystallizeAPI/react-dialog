@@ -19,6 +19,9 @@ function getOuterClassName(props) {
   if (props.medium) {
     base.push(`${base[0]}--medium`);
   }
+  if (props.type) {
+    base.push(`${base}--${props.type}`);
+  }
 
   return base.join(" ");
 }
