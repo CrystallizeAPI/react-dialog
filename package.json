@@ -40,7 +40,7 @@
   },
   "scripts": {
     "dev": "NODE_ENV=development parcel ./public/index.html",
-    "build": "webpack --mode=production",
+    "build": "webpack --mode=development",
     "prepare": "npm run build"
   },
   "peerDependencies": {
