@@ -1,3 +1,9 @@
+## <small>0.2.6 (2018-06-01)</small>
+
+* Switched from emittery to event-emitter ([b686ccf](https://github.com/snowballdigital/react-dialog/commit/b686ccf))
+
+
+
 ## <small>0.2.5 (2018-06-01)</small>
 
 * Changed to dev for build ([d053ac1](https://github.com/snowballdigital/react-dialog/commit/d053ac1))

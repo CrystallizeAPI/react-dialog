@@ -1,6 +1,6 @@
 {
   "name": "@crystallize/react-dialog",
-  "version": "0.2.5",
+  "version": "0.2.6",
   "description": "React component to display accessible dialogs",
   "main": "dist/index.js",
   "repository": {
