@@ -1,3 +1,9 @@
+## <small>0.2.5 (2018-06-01)</small>
+
+* Changed to dev for build ([d053ac1](https://github.com/snowballdigital/react-dialog/commit/d053ac1))
+
+
+
 <a name="0.2.4"></a>
 ## <small>0.2.4 (2018-05-29)</small>
 
