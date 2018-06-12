@@ -39,7 +39,7 @@ class Confirm extends React.Component {
     }
 
     return (
-      <Skeleton title={title} t={t} tiny type="alert" {...rest}>
+      <Skeleton title={title} t={t} tiny type="confirm" {...rest}>
         {body}
         <Buttons>
           <BtnOk onClick={() => hideWithFeedback("ok")}>{btnOkText}</BtnOk>

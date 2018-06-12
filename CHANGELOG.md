@@ -1,3 +1,30 @@
+## <small>0.2.6 (2018-06-01)</small>
+
+* Switched from emittery to event-emitter ([b686ccf](https://github.com/snowballdigital/react-dialog/commit/b686ccf))
+
+
+
+## <small>0.2.5 (2018-06-01)</small>
+
+* Changed to dev for build ([d053ac1](https://github.com/snowballdigital/react-dialog/commit/d053ac1))
+
+
+
+<a name="0.2.4"></a>
+## <small>0.2.4 (2018-05-29)</small>
+
+* fixed bug showing alert class for confirm dialogue ([b791938](https://github.com/snowballdigital/react-dialog/commit/b791938))
+
+
+
+<a name="0.2.3"></a>
+## <small>0.2.3 (2018-05-29)</small>
+
+* fixed bug with type className ([4d78b60](https://github.com/snowballdigital/react-dialog/commit/4d78b60))
+* Swithed to parcel for developing ([0a7c195](https://github.com/snowballdigital/react-dialog/commit/0a7c195))
+
+
+
 <a name="0.2.2"></a>
 ## <small>0.2.2 (2018-05-29)</small>
 

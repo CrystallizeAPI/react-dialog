@@ -6,7 +6,6 @@ export const legacyBackdropClassName = "crystallize-dialog-legacy-backdrop";
 
 function getOuterClassName(props) {
   let base = ["crystallize-dialog"];
-
   if (props.preShown) {
     base.push(`${base[0]}--pre-show`);
   }
@@ -20,9 +19,8 @@ function getOuterClassName(props) {
     base.push(`${base[0]}--medium`);
   }
   if (props.type) {
-    base.push(`${base}--${props.type}`);
+    base.push(`${base[0]}--${props.type}`);
   }
-
   return base.join(" ");
 }
 

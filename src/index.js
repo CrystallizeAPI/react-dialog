@@ -1,6 +1,6 @@
 import React from "react";
 import { translate } from "react-i18next";
-import Emittery from "emittery";
+import ee from "event-emitter";
 import A11yDialog from "a11y-dialog";
 import ow from "ow";
 
@@ -17,7 +17,7 @@ import {
   legacyBackdropClassName
 } from "./styles";
 
-const emitter = new Emittery();
+const emitter = ee();
 
 function showSomething(type, data) {
   const state = {
