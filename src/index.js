@@ -52,6 +52,10 @@ export function showDialog(data) {
   return showSomething("dialog", data);
 }
 
+export function closeCurrent() {
+  emitter.emit("hideCurrent");
+}
+
 class StateAndWrapper extends React.PureComponent {
   static getDerivedStateFromProps(nextProps, prevState) {
     let state = {};
@@ -71,11 +75,16 @@ class StateAndWrapper extends React.PureComponent {
   };
 
   componentDidMount() {
-    this.unsubscribe = emitter.on("add", this.onAdd);
+    this.unsubscribes = [
+      emitter.on("add", this.onAdd),
+      emitter.on("hideCurrent", this.hide)
+    ];
   }
 
   componentWillUnmount() {
-    this.unsubscribe();
+    if (this.unsubscribes) {
+      this.unsubscribes.forEach(fn => fn());
+    }
     clearTimeout(this.suspendCloseTimeout);
   }
 

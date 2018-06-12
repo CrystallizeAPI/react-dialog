@@ -4,7 +4,13 @@ import { I18nextProvider } from "react-i18next";
 import i18n from "i18next";
 import styled from "styled-components";
 
-import { Wrapper, showDialog, showAlert, showConfirm } from "../src";
+import {
+  Wrapper,
+  showDialog,
+  showAlert,
+  showConfirm,
+  closeCurrent
+} from "../src";
 
 const myI18n = i18n.init({
   lng: "en", // active language http://i18next.com/translate/
@@ -127,6 +133,18 @@ export default () => (
             }}
           >
             Show confirm with custom buttons and inspect feedback
+          </button>
+        </p>
+
+        <h2>Utils</h2>
+        <p>
+          <button
+            onClick={async () => {
+              showAlert("Don't worry. I will close soon");
+              setTimeout(() => closeCurrent(), 2000);
+            }}
+          >
+            Show alert and auto close after 2s.
           </button>
         </p>
       </main>
