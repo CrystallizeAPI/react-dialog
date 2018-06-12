@@ -1,3 +1,10 @@
+<a name="0.3.0"></a>
+## 0.3.0 (2018-06-12)
+
+* Added export fn closeCurrent ([1c5025e](https://github.com/snowballdigital/react-dialog/commit/1c5025e))
+
+
+
 ## <small>0.2.6 (2018-06-01)</small>
 
 * Switched from emittery to event-emitter ([b686ccf](https://github.com/snowballdigital/react-dialog/commit/b686ccf))
