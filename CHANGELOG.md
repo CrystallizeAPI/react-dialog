@@ -1,3 +1,10 @@
+<a name="0.4.0"></a>
+## 0.4.0 (2018-07-05)
+
+* Enabled SSR support ([50f2404](https://github.com/snowballdigital/react-dialog/commit/50f2404))
+
+
+
 <a name="0.3.0"></a>
 ## 0.3.0 (2018-06-12)
 
