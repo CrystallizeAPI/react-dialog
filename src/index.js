@@ -83,7 +83,13 @@ class StateAndWrapper extends React.PureComponent {
 
   componentWillUnmount() {
     if (this.unsubscribes) {
-      this.unsubscribes.forEach(fn => fn());
+      this.unsubscribes.forEach(fn => {
+        try {
+          fn();
+        } catch (e) {
+          console.log(e);
+        }
+      });
     }
     clearTimeout(this.suspendCloseTimeout);
   }
