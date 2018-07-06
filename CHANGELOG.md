@@ -1,3 +1,11 @@
+<a name="0.4.2"></a>
+## <small>0.4.2 (2018-07-06)</small>
+
+* Added example of closeCurrent ([40091f4](https://github.com/snowballdigital/react-dialog/commit/40091f4))
+* Removed body overflow hiding ([027bfa2](https://github.com/snowballdigital/react-dialog/commit/027bfa2))
+
+
+
 <a name="0.4.1"></a>
 ## <small>0.4.1 (2018-07-05)</small>
 
