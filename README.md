@@ -24,9 +24,11 @@ export default () => (
 **Use it**
 
 ```
-import { showDialog, showAlert, showConfirm } from '@crystallize/react-dialog';
+import { showDialog, showAlert, showConfirm, closeCurrent } from '@crystallize/react-dialog';
 
 await showDialog('Hey dude');
 await showAlert('Wow');
 await showConfirm('Are you sure?');
+
+closeCurrent();
 ```
