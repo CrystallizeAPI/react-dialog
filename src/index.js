@@ -124,8 +124,8 @@ class StateAndWrapper extends React.PureComponent {
       this.dialog.on("hide", this.onHide);
       this.dialog.show();
 
-      this.oldBodyOverflow = document.body.style.overflow;
-      document.body.style.overflow = "hidden";
+      // this.oldBodyOverflow = document.body.style.overflow;
+      // document.body.style.overflow = "hidden";
 
       this.suspendClose = true;
       this.suspendCloseTimeout = setTimeout(
@@ -149,7 +149,7 @@ class StateAndWrapper extends React.PureComponent {
     this.state.current.resolve(feedback);
     this.dialog.destroy();
 
-    document.body.style.overflow = this.oldBodyOverflow;
+    // document.body.style.overflow = this.oldBodyOverflow;
 
     let newCurrent = null;
     let newQueue = [...this.state.queue];
