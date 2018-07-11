@@ -1,3 +1,10 @@
+<a name="0.4.3"></a>
+## <small>0.4.3 (2018-07-11)</small>
+
+* Fixed unsubscribe ([eda7eff](https://github.com/snowballdigital/react-dialog/commit/eda7eff))
+
+
+
 <a name="0.4.2"></a>
 ## <small>0.4.2 (2018-07-06)</small>
 
