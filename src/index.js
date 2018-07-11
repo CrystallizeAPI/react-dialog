@@ -2,7 +2,6 @@ import React from "react";
 import { translate } from "react-i18next";
 import ee from "event-emitter";
 import A11yDialog from "a11y-dialog";
-import ow from "ow";
 
 import Alert from "./alert";
 import Confirm from "./confirm";
@@ -91,12 +90,13 @@ class StateAndWrapper extends React.PureComponent {
   }
 
   onAdd = item => {
-    ow(item, ow.object);
-    ow(item.type, ow.string);
-    ow(item.title, ow.any(ow.string, ow.nullOrUndefined));
-    ow(item.body, ow.any(ow.string, ow.object));
-    ow(item.buttons, ow.object);
-    ow(item.resolve, ow.function);
+    // Todo: Find other argument validation library that supports IE11
+    // ow(item, ow.object);
+    // ow(item.type, ow.string);
+    // ow(item.title, ow.any(ow.string, ow.nullOrUndefined));
+    // ow(item.body, ow.any(ow.string, ow.object));
+    // ow(item.buttons, ow.object);
+    // ow(item.resolve, ow.function);
 
     const { queue, current } = this.state;
 
