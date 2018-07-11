@@ -75,21 +75,17 @@ class StateAndWrapper extends React.PureComponent {
   };
 
   componentDidMount() {
-    this.unsubscribes = [
-      emitter.on("add", this.onAdd),
-      emitter.on("hideCurrent", this.hide)
-    ];
+    emitter.on("add", this.onAdd), emitter.on("hideCurrent", this.hide);
+
+    this.unsubscribe = () => {
+      emitter.off("add", this.onAdd);
+      emitter.off("hideCurrent", this.hide);
+    };
   }
 
   componentWillUnmount() {
-    if (this.unsubscribes) {
-      this.unsubscribes.forEach(fn => {
-        try {
-          fn();
-        } catch (e) {
-          console.log(e);
-        }
-      });
+    if (this.unsubscribe) {
+      this.unsubscribe();
     }
     clearTimeout(this.suspendCloseTimeout);
   }
