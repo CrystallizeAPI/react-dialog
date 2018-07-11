@@ -1,3 +1,10 @@
+<a name="0.4.4"></a>
+## <small>0.4.4 (2018-07-11)</small>
+
+* Removed ow as dep. ([7596542](https://github.com/snowballdigital/react-dialog/commit/7596542))
+
+
+
 <a name="0.4.3"></a>
 ## <small>0.4.3 (2018-07-11)</small>
 
