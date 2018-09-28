@@ -1,3 +1,11 @@
+## 1.0.0 (2018-09-28)
+
+* Babel 7. Rollup build. ([d1c98f1](https://github.com/snowballdigital/react-dialog/commit/d1c98f1))
+* Logo as png ([4b3c8e2](https://github.com/snowballdigital/react-dialog/commit/4b3c8e2))
+* Resized logo ([7a27189](https://github.com/snowballdigital/react-dialog/commit/7a27189))
+
+
+
 <a name="0.4.4"></a>
 ## <small>0.4.4 (2018-07-11)</small>
 
