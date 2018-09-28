@@ -1,4 +1,4 @@
-![alt text](https://raw.githubusercontent.com/snowballdigital/react-dialog/HEAD/media/logo.svg "Speech bubble")
+![alt text](https://raw.githubusercontent.com/snowballdigital/react-dialog/HEAD/media/logo.png "Speech bubble")
 
 # @crystallize/react-dialog
 
