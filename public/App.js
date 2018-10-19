@@ -141,7 +141,7 @@ export default () => (
           <button
             onClick={async () => {
               showAlert("Don't worry. I will close soon");
-              setTimeout(() => closeCurrent(), 2000);
+              setTimeout(closeCurrent, 2000);
             }}
           >
             Show alert and auto close after 2s.

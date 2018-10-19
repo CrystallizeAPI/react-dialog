@@ -229,7 +229,7 @@ class StateAndWrapper extends React.PureComponent {
     }
 
     return (
-      <WrapperCmp innerRef={this.getRef} onClick={this.onClick}>
+      <WrapperCmp ref={this.getRef} onClick={this.onClick}>
         <LegacyBackdrop tabIndex="-1" onClick={this.onClick} />
         {renderCmp}
       </WrapperCmp>
