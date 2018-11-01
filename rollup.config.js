@@ -1,36 +1,37 @@
-import resolve from 'rollup-plugin-node-resolve';
-import commonjs from 'rollup-plugin-commonjs';
-import babel from 'rollup-plugin-babel';
+import resolve from "rollup-plugin-node-resolve";
+import commonjs from "rollup-plugin-commonjs";
+import babel from "rollup-plugin-babel";
 
-import pkg from './package.json';
+import pkg from "./package.json";
 
 export default {
-  input: 'src/index.js',
+  input: "src/index.js",
   output: {
-    file: 'dist/index.js',
-    format: 'umd',
-    exports: 'named',
+    file: "dist/index.js",
+    format: "umd",
+    exports: "named",
     name: pkg.name,
     globals: {
-      react: 'React',
-      'react-dom': 'ReactDOM',
-      'styled-components': 'StyledComponents',
-      'react-i18next': 'reactI18nextModule'
+      react: "React",
+      "react-dom": "ReactDOM",
+      "styled-components": "StyledComponents",
+      "react-i18next": "reactI18nextModule"
     }
   },
-  external: ['react', 'react-dom', 'styled-components', 'react-i18next'],
+  external: ["react", "react-dom", "styled-components", "react-i18next"],
   plugins: [
     resolve({
       browser: true,
       customResolveOptions: {
-        moduleDirectory: 'node_modules'
+        moduleDirectory: "node_modules"
       }
     }),
     commonjs({
-      include: 'node_modules/**'
+      include: "node_modules/**"
     }),
     babel({
-      exclude: 'node_modules/**'
+      exclude: "node_modules/**",
+      runtimeHelpers: true
     })
   ]
 };

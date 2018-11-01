@@ -1,5 +1,5 @@
 import React from "react";
-import { translate } from "react-i18next";
+import { withNamespaces } from "react-i18next";
 import ee from "event-emitter";
 import A11yDialog from "a11y-dialog";
 
@@ -237,4 +237,4 @@ class StateAndWrapper extends React.PureComponent {
   }
 }
 
-export const Wrapper = translate()(StateAndWrapper);
+export const Wrapper = withNamespaces()(StateAndWrapper);
