@@ -5,14 +5,14 @@
   "main": "dist/index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/snowballdigital/react-dialog.git"
+    "url": "git@github.com:CrystallizeAPI/react-dialog.git"
   },
   "author": "",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/snowballdigital/react-dialog/issues"
+    "url": "https://github.com/CrystallizeAPI/react-dialog/issues"
   },
-  "homepage": "https://github.com/snowballdigital/react-dialog#readme",
+  "homepage": "https://github.com/CrystallizeAPI/react-dialog#readme",
   "dependencies": {
     "@babel/core": "^7.1.0",
     "a11y-dialog": "^5.1.2",
