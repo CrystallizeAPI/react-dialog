@@ -1,3 +1,12 @@
+## 2.0.0 (2018-11-01)
+
+* New git url ([27aeb1d](https://github.com/CrystallizeAPI/react-dialog/commit/27aeb1d))
+* New i18next version ([fc68053](https://github.com/CrystallizeAPI/react-dialog/commit/fc68053))
+* Updated dev setup ([8025ab6](https://github.com/CrystallizeAPI/react-dialog/commit/8025ab6))
+* Updated logo ([3311f81](https://github.com/CrystallizeAPI/react-dialog/commit/3311f81))
+
+
+
 ## 1.0.0 (2018-09-28)
 
 * Babel 7. Rollup build. ([d1c98f1](https://github.com/snowballdigital/react-dialog/commit/d1c98f1))
