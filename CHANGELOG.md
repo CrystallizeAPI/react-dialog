@@ -1,3 +1,9 @@
+## 3.0.0 (2018-11-05)
+
+* Reverted back to react-i18n v7 ([102fdf7](https://github.com/CrystallizeAPI/react-dialog/commit/102fdf7))
+
+
+
 ## 2.0.0 (2018-11-01)
 
 * New git url ([27aeb1d](https://github.com/CrystallizeAPI/react-dialog/commit/27aeb1d))
