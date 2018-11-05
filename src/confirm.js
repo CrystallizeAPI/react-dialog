@@ -1,5 +1,5 @@
 import React from "react";
-import { withNamespaces } from "react-i18next";
+import { translate } from "react-i18next";
 
 import Skeleton from "./skeleton";
 
@@ -52,4 +52,4 @@ class Confirm extends React.Component {
   }
 }
 
-export default withNamespaces()(Confirm);
+export default translate()(Confirm);
