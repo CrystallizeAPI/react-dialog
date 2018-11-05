@@ -1,3 +1,9 @@
+## 3.1.0 (2018-11-05)
+
+* Bump dep. package versions ([769ce26](https://github.com/CrystallizeAPI/react-dialog/commit/769ce26))
+
+
+
 ## 3.0.0 (2018-11-05)
 
 * Reverted back to react-i18n v7 ([102fdf7](https://github.com/CrystallizeAPI/react-dialog/commit/102fdf7))
