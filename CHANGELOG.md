@@ -1,3 +1,9 @@
+## 4.1.0 (2018-12-06)
+
+* Updated readme ([8047305](https://github.com/CrystallizeAPI/react-dialog/commit/8047305))
+
+
+
 ## 4.0.0 (2018-12-06)
 
 * Update README.md ([de5f15c](https://github.com/CrystallizeAPI/react-dialog/commit/de5f15c))
