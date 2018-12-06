@@ -1,3 +1,9 @@
+## <small>4.2.1 (2018-12-06)</small>
+
+* Added live example image ([7880fa6](https://github.com/CrystallizeAPI/react-dialog/commit/7880fa6))
+
+
+
 ## 4.2.0 (2018-12-06)
 
 * Deploy settings ([8b8d14e](https://github.com/CrystallizeAPI/react-dialog/commit/8b8d14e))
