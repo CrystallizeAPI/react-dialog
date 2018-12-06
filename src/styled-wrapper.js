@@ -79,7 +79,6 @@ export const StyledWrapper = styled.div`
 
     &--confirm,
     &--alert {
-      max-width: 400px;
       padding-left: ${iconSpace};
 
       &:before {
