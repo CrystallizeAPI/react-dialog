@@ -1,4 +1,4 @@
-![alt text](https://raw.githubusercontent.com/snowballdigital/react-dialog/HEAD/media/logo.png "Speech bubble")
+![alt text](https://raw.githubusercontent.com/CrystallizeAPI/react-dialog/HEAD/media/logo.png "Speech bubble")
 
 # @crystallize/react-dialog
 
@@ -12,7 +12,7 @@ provide Promise polyfills for your users, try [polyfills.io](https://polyfill.io
 ## Demo
 [Demo](https://react-dialog.milliseconds.io)
 
-![alt text](https://raw.githubusercontent.com/snowballdigital/react-dialog/HEAD/media/react-dialog.gif "React dialog in action")
+![alt text](https://raw.githubusercontent.com/CrystallizeAPI/react-dialog/HEAD/media/react-dialog.gif "React dialog in action")
 
 ## Usage
 
