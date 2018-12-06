@@ -6,6 +6,8 @@ React component to display accessible dialogs. This is a [general purpose compon
 
 Uses [styled-components](https://npmjs.org/package/styled-components) and [a11y-dialog](https://www.npmjs.com/package/a11y-dialog). Leverages the [native dialog HTML element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog) when possible
 
+This module uses **Promises** and does *not* provide a polyfill
+
 ## Demo
 [Demo](https://react-dialog.weknowinternet.work/?selectedKind=Themed&selectedStory=Dialog&full=0&addons=1&stories=1&panelRight=0)
 
@@ -15,7 +17,7 @@ Uses [styled-components](https://npmjs.org/package/styled-components) and [a11y-
 yarn add @crystallize/react-dialog styled-components
 ```
 
-**In your app root**
+### In your app root
 
 ```
 import { Wrapper } from '@crystallize/react-dialog';
@@ -28,7 +30,7 @@ export default () => (
 );
 ```
 
-**Use it**
+### Use it
 
 ```
 import { showDialog, showAlert, showConfirm, closeCurrent } from '@crystallize/react-dialog';
@@ -53,7 +55,7 @@ await showConfirm({
 closeCurrent();
 ```
 
-**Wrapper props**
+## Wrapper props
 | Prop Name    | Default | Type | Description                                |
 | ------------ | ------- | ---- | ------------------------------------------ |
 | cleanTheme   | false   | bool | Use the clean theme instead of the default |
@@ -62,7 +64,7 @@ closeCurrent();
 | ButtonClose  | false   | jsx  | Set a custom default Close button          |
 | Heading      | false   | jsx  | Set a custom default Heading               |
 
-**Show dialog functions**
+## Dialog functions
 All of the show dialog functions (showDialog, showAlert, showConfirm) returns a promise when called. The promise is resolved when the dialog is closed. The return value of the
 promise changes depending on which type of dialog it is
 
