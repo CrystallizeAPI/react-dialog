@@ -41,9 +41,9 @@ await showDialog({
 });
 
 await showAlert('Wow');
-await showConfirm('Are you sure?');
+const confirmResult = await showConfirm('Are you sure?');
 
-await showConfirm({
+const confirmResult = await showConfirm({
   body: <div>JSX rules</div>,
   buttons: {
     ok: p => <button {...p}>Allrighty</button>,
