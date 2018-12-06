@@ -6,10 +6,11 @@ React component to display accessible dialogs. This is a [general purpose compon
 
 Uses [styled-components](https://npmjs.org/package/styled-components) and [a11y-dialog](https://www.npmjs.com/package/a11y-dialog). Leverages the [native dialog HTML element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog) when possible
 
-This module uses **Promises** and does *not* provide a polyfill
+This module uses **Promises** and does *not* provide a polyfill. To easily
+provide Promise polyfills for your users, try [polyfills.io](https://polyfill.io/v2/docs/)
 
 ## Demo
-[Demo](https://react-dialog.weknowinternet.work/?selectedKind=Themed&selectedStory=Dialog&full=0&addons=1&stories=1&panelRight=0)
+[Demo](https://react-dialog.milliseconds.io)
 
 ## Usage
 
