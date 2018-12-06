@@ -1,3 +1,9 @@
+## <small>4.1.1 (2018-12-06)</small>
+
+* Show how confirmresult can be retrieved ([2ee8f99](https://github.com/CrystallizeAPI/react-dialog/commit/2ee8f99))
+
+
+
 ## 4.1.0 (2018-12-06)
 
 * Updated readme ([8047305](https://github.com/CrystallizeAPI/react-dialog/commit/8047305))
