@@ -1,25 +1,20 @@
 import React from "react";
-import { translate } from "react-i18next";
 
 import Skeleton from "./skeleton";
 
 import { Buttons } from "./styles";
 
-class Confirm extends React.Component {
+export default class Confirm extends React.Component {
+  hideWithFeedbackOk = () => this.props.hideWithFeedback("ok");
+  hideWithFeedbackCancel = () => this.props.hideWithFeedback("cancel");
+
   render() {
-    const {
-      state,
-      ButtonOk,
-      ButtonCancel,
-      hideWithFeedback,
-      t,
-      ...rest
-    } = this.props;
+    const { state, ButtonOk, ButtonCancel, ...rest } = this.props;
 
     const { title, body, buttons = {} } = state;
 
     let BtnOk = ButtonOk;
-    let btnOkText = t("ok");
+    let btnOkText = "Ok";
     if (buttons.ok) {
       if (typeof buttons.ok === "string") {
         btnOkText = buttons.ok;
@@ -29,7 +24,7 @@ class Confirm extends React.Component {
     }
 
     let BtnCancel = ButtonCancel;
-    let btnCancelText = t("cancel");
+    let btnCancelText = "Cancel";
     if (buttons.cancel) {
       if (typeof buttons.cancel === "string") {
         btnCancelText = buttons.cancel;
@@ -39,11 +34,11 @@ class Confirm extends React.Component {
     }
 
     return (
-      <Skeleton title={title} t={t} tiny type="confirm" {...rest}>
+      <Skeleton title={title} tiny type="confirm" {...rest}>
         {body}
         <Buttons>
-          <BtnOk onClick={() => hideWithFeedback("ok")}>{btnOkText}</BtnOk>
-          <BtnCancel onClick={() => hideWithFeedback("cancel")}>
+          <BtnOk onClick={this.hideWithFeedbackOk}>{btnOkText}</BtnOk>
+          <BtnCancel onClick={this.hideWithFeedbackCancel}>
             {btnCancelText}
           </BtnCancel>
         </Buttons>
@@ -51,5 +46,3 @@ class Confirm extends React.Component {
     );
   }
 }
-
-export default translate()(Confirm);

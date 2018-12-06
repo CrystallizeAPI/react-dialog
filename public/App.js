@@ -148,12 +148,13 @@ export default () => (
           </button>
         </p>
       </main>
-      <Wrapper
+      {/* <Wrapper
         ButtonOk={MyOkButton}
         ButtonCancel={MyCancelButton}
         ButtonClose={MyCloseButton}
         Heading={MyTitle}
-      />
+      /> */}
+      <Wrapper />
     </div>
   </I18nextProvider>
 );

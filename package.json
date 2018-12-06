@@ -16,6 +16,7 @@
   "dependencies": {
     "a11y-dialog": "^5.2.0",
     "event-emitter": "^0.3.5",
+    "react-i18next": "^8.3.8",
     "styled-is": "^1.1.5"
   },
   "devDependencies": {
@@ -26,13 +27,14 @@
     "@babel/preset-env": "^7.1.0",
     "@babel/preset-react": "^7.0.0",
     "@babel/register": "^7.0.0",
+    "@storybook/react": "^4.0.12",
+    "babel-loader": "^8.0.4",
     "faker": "^4.1.0",
-    "i18next": "^11.2.3",
+    "i18next": ">= 6.0.1",
     "parcel-bundler": "^1.10.3",
-    "prop-types": "^15.6.1",
-    "react": "^16.5.0",
+    "prop-types": "15.6.2",
+    "react": "^0.14.0 ||^15.0.0 || ^16.0.0",
     "react-dom": "^16.5.0",
-    "react-i18next": "^7.6.1",
     "rollup": "^0.66.2",
     "rollup-plugin-babel": "^4.0.3",
     "rollup-plugin-commonjs": "^9.1.8",
@@ -44,7 +46,9 @@
   "scripts": {
     "dev": "NODE_ENV=development parcel ./public/index.html",
     "build": "rollup -c --sourcemap",
-    "prepare": "npm run build"
+    "prepare": "npm run build",
+    "storybook": "start-storybook -p 9001 -c .storybook",
+    "storybook:build": "build-storybook -c .storybook -o demo"
   },
   "peerDependencies": {
     "react": ">=16.3.2",

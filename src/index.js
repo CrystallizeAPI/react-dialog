@@ -1,11 +1,18 @@
 import React from "react";
-import { translate } from "react-i18next";
 import ee from "event-emitter";
 import A11yDialog from "a11y-dialog";
+import PropTypes from "prop-types";
 
 import Alert from "./alert";
 import Confirm from "./confirm";
 import Dialog from "./dialog";
+import {
+  StyledWrapper,
+  StyledButtonOk,
+  StyledButtonCancel,
+  StyledButtonClose,
+  StyledH1
+} from "./styled-wrapper";
 
 import {
   WrapperCmp,
@@ -56,14 +63,47 @@ export function closeCurrent() {
 }
 
 class StateAndWrapper extends React.PureComponent {
-  static getDerivedStateFromProps(nextProps, prevState) {
+  static propTypes = {
+    cleanTheme: PropTypes.bool,
+    ButtonOk: PropTypes.oneOfType([
+      PropTypes.func,
+      PropTypes.object,
+      PropTypes.node
+    ]),
+    ButtonCancel: PropTypes.oneOfType([
+      PropTypes.func,
+      PropTypes.object,
+      PropTypes.node
+    ]),
+    ButtonClose: PropTypes.oneOfType([
+      PropTypes.func,
+      PropTypes.object,
+      PropTypes.node
+    ]),
+    Heading: PropTypes.oneOfType([
+      PropTypes.func,
+      PropTypes.object,
+      PropTypes.node
+    ])
+  };
+
+  static getDerivedStateFromProps(nextProps) {
+    const { cleanTheme } = nextProps;
+
     let state = {};
-    state.ButtonOk = nextProps.ButtonOk || Button;
-    state.ButtonCancel = nextProps.ButtonCancel || Button;
-    state.Heading = nextProps.Heading || H1;
-    state.ButtonClose = nextProps.ButtonClose || CloseButton;
+    state.ButtonOk =
+      nextProps.ButtonOk || (cleanTheme ? Button : StyledButtonOk);
+    state.ButtonCancel =
+      nextProps.ButtonCancel || (cleanTheme ? Button : StyledButtonCancel);
+    state.ButtonClose =
+      nextProps.ButtonClose || (cleanTheme ? CloseButton : StyledButtonClose);
+    state.Heading = nextProps.Heading || (cleanTheme ? H1 : StyledH1);
 
     return state;
+  }
+
+  componentDidCatch(error, info) {
+    console.log(error, info);
   }
 
   state = {
@@ -90,7 +130,7 @@ class StateAndWrapper extends React.PureComponent {
   }
 
   onAdd = item => {
-    // Todo: Find other argument validation library that supports IE11
+    // Todo: Use an argument validation library that supports IE11
     // ow(item, ow.object);
     // ow(item.type, ow.string);
     // ow(item.title, ow.any(ow.string, ow.nullOrUndefined));
@@ -117,9 +157,10 @@ class StateAndWrapper extends React.PureComponent {
   show = () => {
     if (this.state.current) {
       this.dialog = new A11yDialog(this.el);
-      this.dialog.on("hide", this.onHide);
+      this.dialog.on("hide", this.onHideFromDialog);
       this.dialog.show();
 
+      // Don't allow for any action the next 300ms
       this.suspendClose = true;
       this.suspendCloseTimeout = setTimeout(
         () => (this.suspendClose = false),
@@ -138,9 +179,21 @@ class StateAndWrapper extends React.PureComponent {
     this.setState({ feedback }, () => this.hide());
   };
 
-  onHide = (feedback = this.state.feedback) => {
+  onHideFromDialog = () => {
+    const { current } = this.state;
+    if (current.type === "confirm") {
+      this.onHide("cancel", true);
+    } else {
+      this.onHide(this.state.feedback, true);
+    }
+  };
+
+  onHide = (feedback = this.state.feedback, fromDialog) => {
     this.state.current.resolve(feedback);
-    this.dialog.destroy();
+
+    if (!fromDialog) {
+      this.dialog.destroy();
+    }
 
     let newCurrent = null;
     let newQueue = [...this.state.queue];
@@ -182,8 +235,7 @@ class StateAndWrapper extends React.PureComponent {
       ButtonOk,
       ButtonCancel,
       Heading,
-      ButtonClose,
-      t: this.props.t
+      ButtonClose
     };
 
     switch (current.type) {
@@ -217,19 +269,26 @@ class StateAndWrapper extends React.PureComponent {
   };
 
   render() {
+    const { cleanTheme } = this.props;
     const renderCmp = this.getCurrentComponent();
 
     if (!renderCmp) {
       return null;
     }
 
-    return (
+    const clean = (
       <WrapperCmp ref={this.getRef} onClick={this.onClick}>
         <LegacyBackdrop tabIndex="-1" onClick={this.onClick} />
         {renderCmp}
       </WrapperCmp>
     );
+
+    if (cleanTheme) {
+      return clean;
+    }
+
+    return <StyledWrapper>{clean}</StyledWrapper>;
   }
 }
 
-export const Wrapper = translate()(StateAndWrapper);
+export const Wrapper = StateAndWrapper;

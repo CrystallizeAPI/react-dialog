@@ -30,7 +30,6 @@ export default class Skeleton extends React.Component {
   render() {
     const {
       children,
-      t,
       tiny,
       type,
       title,
@@ -47,7 +46,7 @@ export default class Skeleton extends React.Component {
               <ButtonClose
                 type="button"
                 data-a11y-dialog-hide
-                aria-label={t("closeThisDialogWindow")}
+                aria-label="Close this dialog window"
               >
                 &times;
               </ButtonClose>
