@@ -1,3 +1,11 @@
+## 4.0.0 (2018-12-06)
+
+* Update README.md ([de5f15c](https://github.com/CrystallizeAPI/react-dialog/commit/de5f15c))
+* Update README.md ([fa8be6e](https://github.com/CrystallizeAPI/react-dialog/commit/fa8be6e))
+* Updated readme. Added styled wrapper ([a0a3471](https://github.com/CrystallizeAPI/react-dialog/commit/a0a3471))
+
+
+
 ## 3.1.0 (2018-11-05)
 
 * Bump dep. package versions ([769ce26](https://github.com/CrystallizeAPI/react-dialog/commit/769ce26))
