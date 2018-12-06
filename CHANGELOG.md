@@ -1,3 +1,10 @@
+## 4.2.0 (2018-12-06)
+
+* Deploy settings ([8b8d14e](https://github.com/CrystallizeAPI/react-dialog/commit/8b8d14e))
+* Ensured confirm is not forced to be tiny ([9bd4248](https://github.com/CrystallizeAPI/react-dialog/commit/9bd4248))
+
+
+
 ## <small>4.1.1 (2018-12-06)</small>
 
 * Show how confirmresult can be retrieved ([2ee8f99](https://github.com/CrystallizeAPI/react-dialog/commit/2ee8f99))
