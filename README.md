@@ -12,6 +12,8 @@ provide Promise polyfills for your users, try [polyfills.io](https://polyfill.io
 ## Demo
 [Demo](https://react-dialog.milliseconds.io)
 
+![alt text](https://raw.githubusercontent.com/snowballdigital/react-dialog/HEAD/media/react-dialog.gif "React dialog in action")
+
 ## Usage
 
 ```
