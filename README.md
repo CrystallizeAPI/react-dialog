@@ -2,7 +2,7 @@
 
 # @crystallize/react-dialog
 
-React component to display accessible dialogs. This is a [general purpose component to build awesome and accessible dialogs in react](https://crystallize.com/developers/react-components/react-dialog). Built initially for use in the [Crystallize headles commerce service](https://crystallize.com).
+React component to display accessible dialogs. This is a [general purpose component to build awesome and accessible dialogs in react](https://crystallize.com/developers/react-components/react-dialog). Built initially for use in the [Crystallize headless commerce service](https://crystallize.com).
 
 ## Usage
 
