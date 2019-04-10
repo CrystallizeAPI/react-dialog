@@ -117,7 +117,7 @@ export const StyledWrapper = styled.div`
 
       .crystallize-dialog-inner {
         padding: 30px;
-        min-height: 100%;
+        min-height: 40px;
       }
     }
   }
