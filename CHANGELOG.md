@@ -1,3 +1,9 @@
+## <small>4.2.5 (2019-04-10)</small>
+
+* Adjusting z-index or none-native dialogs ([c74914f](https://github.com/CrystallizeAPI/react-dialog/commit/c74914f))
+
+
+
 ## <small>4.2.4 (2019-04-10)</small>
 
 * Lifted z-index property to the parent for none-native dialogs ([f906e6a](https://github.com/CrystallizeAPI/react-dialog/commit/f906e6a))
