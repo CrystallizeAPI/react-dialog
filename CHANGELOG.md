@@ -1,3 +1,10 @@
+## <small>4.2.2 (2019-04-10)</small>
+
+* Fix of min-height ([750fd06](https://github.com/CrystallizeAPI/react-dialog/commit/750fd06))
+* Updated github image links ([9ceac96](https://github.com/CrystallizeAPI/react-dialog/commit/9ceac96))
+
+
+
 ## <small>4.2.1 (2018-12-06)</small>
 
 * Added live example image ([7880fa6](https://github.com/CrystallizeAPI/react-dialog/commit/7880fa6))
