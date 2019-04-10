@@ -54,10 +54,10 @@ export const WrapperCmp = styled.div.attrs({
     display: flex;
     align-items: center;
     justify-content: center;
+    z-index: 9999;
 
     dialog {
       position: relative;
-      z-index: 9999;
 
       &[open] {
         display: block;
