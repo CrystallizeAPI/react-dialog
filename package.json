@@ -15,7 +15,6 @@
   "homepage": "https://github.com/CrystallizeAPI/react-dialog#readme",
   "dependencies": {
     "a11y-dialog": "^5.2.0",
-    "event-emitter": "^0.3.5",
     "react-i18next": "^8.3.8",
     "styled-is": "^1.1.5"
   },

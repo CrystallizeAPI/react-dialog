@@ -1,5 +1,4 @@
 import React from "react";
-import ee from "event-emitter";
 import A11yDialog from "a11y-dialog";
 import PropTypes from "prop-types";
 
@@ -23,7 +22,8 @@ import {
   legacyBackdropClassName
 } from "./styles";
 
-const emitter = ee();
+let onAddFn;
+let onCloseFn;
 
 function showSomething(type, data) {
   const state = {
@@ -38,7 +38,7 @@ function showSomething(type, data) {
   }
 
   return new Promise(resolve => {
-    emitter.emit("add", {
+    onAddFn({
       ...state,
       type,
       resolve
@@ -59,7 +59,9 @@ export function showDialog(data) {
 }
 
 export function closeCurrent() {
-  emitter.emit("hideCurrent");
+  if (onCloseFn) {
+    onCloseFn();
+  }
 }
 
 class StateAndWrapper extends React.PureComponent {
@@ -114,11 +116,12 @@ class StateAndWrapper extends React.PureComponent {
   };
 
   componentDidMount() {
-    emitter.on("add", this.onAdd), emitter.on("hideCurrent", this.hide);
+    onAddFn = this.onAdd;
+    onCloseFn = this.hide;
 
     this.unsubscribe = () => {
-      emitter.off("add", this.onAdd);
-      emitter.off("hideCurrent", this.hide);
+      onAddFn = null;
+      onCloseFn = null;
     };
   }
 
