@@ -1,3 +1,9 @@
+## <small>4.2.4 (2019-04-10)</small>
+
+* Lifted z-index property to the parent for none-native dialogs ([f906e6a](https://github.com/CrystallizeAPI/react-dialog/commit/f906e6a))
+
+
+
 ## <small>4.2.3 (2019-04-10)</small>
 
 * Removed event-emitter dep ([f3446b7](https://github.com/CrystallizeAPI/react-dialog/commit/f3446b7))
