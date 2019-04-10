@@ -1,3 +1,9 @@
+## <small>4.2.3 (2019-04-10)</small>
+
+* Removed event-emitter dep ([f3446b7](https://github.com/CrystallizeAPI/react-dialog/commit/f3446b7))
+
+
+
 ## <small>4.2.2 (2019-04-10)</small>
 
 * Fix of min-height ([750fd06](https://github.com/CrystallizeAPI/react-dialog/commit/750fd06))
