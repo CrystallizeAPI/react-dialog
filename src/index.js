@@ -26,6 +26,10 @@ let onAddFn;
 let onCloseFn;
 
 function showSomething(type, data) {
+  if (!onAddFn) {
+    return Promise.resolve();
+  }
+
   const state = {
     title: null,
     body: data,
