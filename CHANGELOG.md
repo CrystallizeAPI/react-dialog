@@ -1,3 +1,9 @@
+## <small>4.2.6 (2019-04-29)</small>
+
+* Fix for when onAddFn is not defined ([76d51f7](https://github.com/CrystallizeAPI/react-dialog/commit/76d51f7))
+
+
+
 ## <small>4.2.5 (2019-04-10)</small>
 
 * Adjusting z-index or none-native dialogs ([c74914f](https://github.com/CrystallizeAPI/react-dialog/commit/c74914f))
