@@ -44,6 +44,18 @@ export default () => (
           With title
         </button>
       </p>
+      <p>
+        <button
+          onClick={() =>
+            showDialog({
+              body: faker.hacker.phrase(),
+              disableBackdropClick: true
+            })
+          }
+        >
+          Disable backdrop click
+        </button>
+      </p>
 
       <h2>Alert</h2>
       <p>

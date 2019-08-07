@@ -144,6 +144,7 @@ class StateAndWrapper extends React.PureComponent {
     // ow(item.body, ow.any(ow.string, ow.object));
     // ow(item.buttons, ow.object);
     // ow(item.resolve, ow.function);
+    // ow(item.disableBackdropClick, ow.bool)
 
     const { queue, current } = this.state;
 
@@ -264,7 +265,11 @@ class StateAndWrapper extends React.PureComponent {
   getRef = el => (this.el = el);
 
   onClick = e => {
-    if (this.state.current.type !== "confirm") {
+    const { current } = this.state;
+    if (
+      !current.disableBackdropClick &&
+      this.state.current.type !== "confirm"
+    ) {
       if (
         e.target.tagName === "DIALOG" ||
         e.target.classList.contains(legacyBackdropClassName)
