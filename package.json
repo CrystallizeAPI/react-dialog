@@ -29,7 +29,6 @@
     "@storybook/react": "^4.0.12",
     "babel-loader": "^8.0.5",
     "faker": "^4.1.0",
-    "i18next": ">= 6.0.1",
     "parcel-bundler": "^1.10.3",
     "prop-types": "15.6.2",
     "react": "^0.14.0 ||^15.0.0 || ^16.0.0",
@@ -52,7 +51,6 @@
   "peerDependencies": {
     "react": ">=16.3.2",
     "react-dom": ">=16.3.2",
-    "react-i18next": ">=7.6.1",
     "styled-components": ">=4"
   }
 }

@@ -81,6 +81,7 @@ export const Outer = styled.dialog.attrs({
   opacity: 0;
   transform: scale(0.9);
   transition: opacity ${transitionSpeed}ms, transform ${transitionSpeed}ms;
+  box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.2);
 
   ${is("tiny")`
     width: 250px;
@@ -102,7 +103,6 @@ export const Inner = styled.div.attrs({
   background: #fff;
   padding: 20px;
   border: none;
-  box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.2);
 `;
 
 export const Header = styled.header.attrs({
