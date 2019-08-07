@@ -1,3 +1,9 @@
+## <small>4.2.7 (2019-08-07)</small>
+
+* Removed i18next dep ([e519021](https://github.com/CrystallizeAPI/react-dialog/commit/e519021))
+
+
+
 ## <small>4.2.6 (2019-04-29)</small>
 
 * Fix for when onAddFn is not defined ([76d51f7](https://github.com/CrystallizeAPI/react-dialog/commit/76d51f7))
