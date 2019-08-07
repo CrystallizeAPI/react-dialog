@@ -1,3 +1,10 @@
+## 4.3.0 (2019-08-07)
+
+* Added 'disableBackdropClick' option ([799910b](https://github.com/CrystallizeAPI/react-dialog/commit/799910b))
+* Updated readme ([b35e606](https://github.com/CrystallizeAPI/react-dialog/commit/b35e606))
+
+
+
 ## <small>4.2.7 (2019-08-07)</small>
 
 * Removed i18next dep ([e519021](https://github.com/CrystallizeAPI/react-dialog/commit/e519021))
