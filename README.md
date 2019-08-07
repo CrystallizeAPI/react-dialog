@@ -77,7 +77,8 @@ The functions accepts a single string argument. They also support a single objec
 {
   title<string|jsx>: <h1>Hi there</h1>
   body<string|jsx>: 'you',
-  showCloseButton<bool>: false (default is true)
+  showCloseButton<bool>: false (default is true),
+  disableBackdropClick<bool>: false
 }
 ```
 
