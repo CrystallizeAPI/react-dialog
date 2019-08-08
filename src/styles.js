@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import is from "styled-is";
 
 export const transitionSpeed = 100;
 export const legacyBackdropClassName = "crystallize-dialog-legacy-backdrop";
@@ -83,18 +82,15 @@ export const Outer = styled.dialog.attrs({
   transition: opacity ${transitionSpeed}ms, transform ${transitionSpeed}ms;
   box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.2);
 
-  ${is("tiny")`
-    width: 250px;
-  `};
+  ${p => (p.tiny ? `width: 250px;` : "")};
 
-  ${is("medium")`
-    max-width: 500px;
-  `};
+  ${p => (p.medium ? `max-width: 500px;` : "")};
 
-  ${is("revealed")`
-    opacity: 1;
-    transform: none;
-  `};
+  ${p =>
+    p.revealed
+      ? `opacity: 1;
+         transform: none;`
+      : ""};
 `;
 
 export const Inner = styled.div.attrs({

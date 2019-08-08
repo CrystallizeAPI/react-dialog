@@ -14,9 +14,7 @@
   },
   "homepage": "https://github.com/CrystallizeAPI/react-dialog#readme",
   "dependencies": {
-    "a11y-dialog": "^5.2.0",
-    "react-i18next": "^8.3.8",
-    "styled-is": "^1.1.5"
+    "a11y-dialog": "^5.2.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.4.3",

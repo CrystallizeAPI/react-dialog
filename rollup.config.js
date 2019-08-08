@@ -14,11 +14,10 @@ export default {
     globals: {
       react: "React",
       "react-dom": "ReactDOM",
-      "styled-components": "StyledComponents",
-      "react-i18next": "reactI18nextModule"
+      "styled-components": "StyledComponents"
     }
   },
-  external: ["react", "react-dom", "styled-components", "react-i18next"],
+  external: ["react", "react-dom", "styled-components"],
   plugins: [
     resolve({
       browser: true,
