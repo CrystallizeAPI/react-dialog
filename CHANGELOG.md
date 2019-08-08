@@ -1,3 +1,10 @@
+## 4.4.0 (2019-08-08)
+
+* Removed styled-is dep ([6cefbad](https://github.com/CrystallizeAPI/react-dialog/commit/6cefbad))
+* Updated dependencies ([883183e](https://github.com/CrystallizeAPI/react-dialog/commit/883183e))
+
+
+
 ## 4.3.0 (2019-08-07)
 
 * Added 'disableBackdropClick' option ([799910b](https://github.com/CrystallizeAPI/react-dialog/commit/799910b))
