@@ -1,6 +1,6 @@
 {
   "name": "@crystallize/react-dialog",
-  "version": "4.4.0",
+  "version": "5.0.0-beta.0",
   "description": "Accessible dialogs in React",
   "main": "dist/index.js",
   "source": "src/index.js",
