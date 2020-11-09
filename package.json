@@ -13,43 +13,32 @@
   "scripts": {
     "dev": "NODE_ENV=development parcel ./public/index.html",
     "build": "microbundle --jsx React.createElement",
-    "build-b": "rollup -c --sourcemap",
     "prepare": "npm run build",
     "storybook": "start-storybook -p 9001 -c .storybook",
     "storybook:build": "build-storybook -c .storybook -o demo",
     "release": "release-it"
   },
-  "author": "",
+  "exports": {
+    ".": "./dist/index.module.js"
+  },
+  "author": "Crystallize <hello@crystallize.com>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/CrystallizeAPI/react-dialog/issues"
   },
   "homepage": "https://github.com/CrystallizeAPI/react-dialog#readme",
   "dependencies": {
-    "a11y-dialog": "^5.2.0"
+    "a11y-dialog": "^5.4.2"
   },
   "devDependencies": {
-    "@babel/cli": "^7.5.5",
-    "@babel/core": "^7.5.5",
-    "@babel/plugin-proposal-class-properties": "^7.5.5",
-    "@babel/plugin-transform-runtime": "^7.5.5",
-    "@babel/preset-env": "^7.5.5",
-    "@babel/preset-react": "^7.0.0",
-    "@babel/register": "^7.5.5",
     "@storybook/react": "^5.1.10",
-    "babel-loader": "^8.0.6",
     "faker": "^4.1.0",
     "microbundle": "^0.12.4",
-    "parcel-bundler": "^1.10.3",
+    "parcel-bundler": "^1.12.4",
     "prop-types": "15.6.2",
-    "react": "^16.0.0",
-    "react-dom": "^16.5.0",
-    "release-it": "^14.0.3",
-    "rollup": "^1.19.4",
-    "rollup-plugin-babel": "^4.3.3",
-    "rollup-plugin-commonjs": "^10.0.2",
-    "rollup-plugin-node-resolve": "^5.2.0",
-    "styled-components": "^5.2.0"
+    "react": "^17.0.0",
+    "react-dom": "^17.0.0",
+    "styled-components": "^5.2.1"
   },
   "peerDependencies": {
     "react": ">=16.3.2",
