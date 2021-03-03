@@ -35,7 +35,7 @@
   },
   "homepage": "https://github.com/CrystallizeAPI/react-dialog#readme",
   "dependencies": {
-    "a11y-dialog": "^5.4.2"
+    "a11y-dialog": "^5.5.2"
   },
   "devDependencies": {
     "@storybook/react": "^6.1.21",
