@@ -38,9 +38,9 @@
     "a11y-dialog": "^5.4.2"
   },
   "devDependencies": {
-    "@storybook/react": "^5.1.10",
+    "@storybook/react": "^6.1.21",
     "faker": "^4.1.0",
-    "microbundle": "^0.12.4",
+    "microbundle": "^0.13.0",
     "parcel-bundler": "^1.12.4",
     "prop-types": "15.6.2",
     "react": "^17.0.0",
@@ -48,8 +48,6 @@
     "styled-components": "^5.2.1"
   },
   "peerDependencies": {
-    "react": ">=16.3.2",
-    "react-dom": ">=16.3.2",
     "styled-components": ">=4"
   }
 }
