@@ -10,7 +10,7 @@ import {
   StyledButtonOk,
   StyledButtonCancel,
   StyledButtonClose,
-  StyledH1
+  StyledH1,
 } from "./styled-wrapper";
 
 import {
@@ -19,34 +19,39 @@ import {
   Button,
   H1,
   CloseButton,
-  legacyBackdropClassName
+  legacyBackdropClassName,
 } from "./styles";
 
 let onAddFn;
 let onCloseFn;
 
 function showSomething(type, data) {
-  if (!onAddFn) {
-    return Promise.resolve();
-  }
+  return new Promise((resolve) => {
+    function go() {
+      // Wait for onAddFn to be available
+      if (!onAddFn) {
+        return setTimeout(go, 5);
+      }
 
-  const state = {
-    title: null,
-    body: data,
-    buttons: {},
-    showCloseButton: type === "dialog"
-  };
+      const state = {
+        title: null,
+        body: data,
+        buttons: {},
+        showCloseButton: type === "dialog",
+      };
 
-  if (typeof data !== "string") {
-    Object.assign(state, data);
-  }
+      if (typeof data !== "string") {
+        Object.assign(state, data);
+      }
 
-  return new Promise(resolve => {
-    onAddFn({
-      ...state,
-      type,
-      resolve
-    });
+      onAddFn({
+        ...state,
+        type,
+        resolve,
+      });
+    }
+
+    go();
   });
 }
 
@@ -74,23 +79,23 @@ class StateAndWrapper extends React.PureComponent {
     ButtonOk: PropTypes.oneOfType([
       PropTypes.func,
       PropTypes.object,
-      PropTypes.node
+      PropTypes.node,
     ]),
     ButtonCancel: PropTypes.oneOfType([
       PropTypes.func,
       PropTypes.object,
-      PropTypes.node
+      PropTypes.node,
     ]),
     ButtonClose: PropTypes.oneOfType([
       PropTypes.func,
       PropTypes.object,
-      PropTypes.node
+      PropTypes.node,
     ]),
     Heading: PropTypes.oneOfType([
       PropTypes.func,
       PropTypes.object,
-      PropTypes.node
-    ])
+      PropTypes.node,
+    ]),
   };
 
   static getDerivedStateFromProps(nextProps) {
@@ -116,7 +121,7 @@ class StateAndWrapper extends React.PureComponent {
     current: null,
     queue: [],
     shown: false,
-    feedback: null
+    feedback: null,
   };
 
   componentDidMount() {
@@ -136,7 +141,7 @@ class StateAndWrapper extends React.PureComponent {
     clearTimeout(this.suspendCloseTimeout);
   }
 
-  onAdd = item => {
+  onAdd = (item) => {
     // Todo: Use an argument validation library that supports IE11
     // ow(item, ow.object);
     // ow(item.type, ow.string);
@@ -151,13 +156,13 @@ class StateAndWrapper extends React.PureComponent {
     if (!current) {
       this.setState(
         {
-          current: item
+          current: item,
         },
         this.show
       );
     } else {
       this.setState({
-        queue: [...queue, item]
+        queue: [...queue, item],
       });
     }
   };
@@ -183,7 +188,7 @@ class StateAndWrapper extends React.PureComponent {
     }
   };
 
-  hideWithFeedback = feedback => {
+  hideWithFeedback = (feedback) => {
     this.setState({ feedback }, () => this.hide());
   };
 
@@ -213,24 +218,19 @@ class StateAndWrapper extends React.PureComponent {
       {
         current: newCurrent,
         queue: newQueue,
-        feedback: null
+        feedback: null,
       },
       this.show
     );
   };
 
-  onDialogChange = feedback => this.setState({ feedback });
+  onDialogChange = (feedback) => this.setState({ feedback });
 
-  hideWithFeedback = feedback => this.onHide(feedback);
+  hideWithFeedback = (feedback) => this.onHide(feedback);
 
   getCurrentComponent() {
-    const {
-      current,
-      ButtonOk,
-      ButtonCancel,
-      Heading,
-      ButtonClose
-    } = this.state;
+    const { current, ButtonOk, ButtonCancel, Heading, ButtonClose } =
+      this.state;
 
     if (!current) {
       return null;
@@ -243,7 +243,7 @@ class StateAndWrapper extends React.PureComponent {
       ButtonOk,
       ButtonCancel,
       Heading,
-      ButtonClose
+      ButtonClose,
     };
 
     switch (current.type) {
@@ -262,9 +262,9 @@ class StateAndWrapper extends React.PureComponent {
     }
   }
 
-  getRef = el => (this.el = el);
+  getRef = (el) => (this.el = el);
 
-  onClick = e => {
+  onClick = (e) => {
     const { current } = this.state;
     if (
       !current.disableBackdropClick &&
